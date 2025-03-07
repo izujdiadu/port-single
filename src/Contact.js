@@ -112,10 +112,10 @@ function Contact() {
     setResetAnim(true);
     setTimeout(() => {
       setTopBubbles(generateTopBubbles());
-      resetShooter();
+      resetShooter();  // Utilisation de la fonction resetShooter mémorisée
       setAim(null);
       setResetAnim(false);
-    }, 700); // durée de l'animation en ms doit correspondre à celle du CSS
+    }, 700);
   };
 
   // Boucle d'animation pour déplacer la bulle tireuse
