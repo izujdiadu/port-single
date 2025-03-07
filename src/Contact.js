@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback  } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 import './Contact.css';
@@ -33,8 +33,8 @@ function Contact() {
   // Pour générer des id uniques pour les bulles ajoutées lors d'une collision ratée
   const nextId = useRef(numBubbles);
 
-  // Génération de la bulle tireuse (en bas, centrée)
-  const generateShooterBubble = () => {
+  // Mémorisation de generateShooterBubble avec useCallback
+  const generateShooterBubble = useCallback(() => {
     const randomType = bubbleTypes[Math.floor(Math.random() * bubbleTypes.length)];
     return {
       x: window.innerWidth / 2.5 - bubbleSize / 2,
@@ -43,7 +43,7 @@ function Contact() {
       isShot: false,
       angle: 0,
     };
-  };
+  }, [bubbleTypes, bubbleSize]);
 
   const [shooterBubble, setShooterBubble] = useState(generateShooterBubble());
   // Pour dessiner la ligne de visée, on suit la position de la souris
@@ -73,7 +73,6 @@ function Contact() {
     visible: { opacity: 1, y: 0, scale: 1, transition: { delay: 1, duration: 0.5, ease: 'easeInOut' } },
   };
 
-
   // En cliquant sur la zone de jeu, on calcule l'angle de tir
   const handleClick = (e) => {
     if (shooterBubble.isShot) return;
@@ -102,11 +101,11 @@ function Contact() {
     setAim({ x: mouseX, y: mouseY });
   };
 
-  // Réinitialise la bulle tireuse
+  // Mémorisation de la fonction resetShooter avec useCallback
   const resetShooter = useCallback(() => {
     setShooterBubble(generateShooterBubble());
-  }, []);
-  
+  }, [generateShooterBubble]);
+
   // Réinitialise l'ensemble du jeu (plateau et tireuse) avec une animation
   const resetGame = () => {
     setResetAnim(true);
@@ -117,7 +116,6 @@ function Contact() {
       setResetAnim(false);
     }, 700);
   };
-  
 
   // Boucle d'animation pour déplacer la bulle tireuse
   useEffect(() => {
