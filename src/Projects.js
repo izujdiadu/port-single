@@ -1,10 +1,7 @@
 import React, { useState, useMemo } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import './Projects.css';
-import project1 from './Images/project1.jpg';
-import project2 from './Images/project2.jpg';
-import project3 from './Images/project3.jpg';
-import project4 from './Images/project4.jpg';
+
 
 // Génère un tableau de "count" valeurs aléatoires entre min et max
 const generateRandomArray = (min, max, count = 4) =>

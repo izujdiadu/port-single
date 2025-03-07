@@ -74,19 +74,6 @@ function Contact() {
   };
 
 
-  // Gestion du hover : en mode initial, au survol on affiche la preview dans le disque
-  const handleMouseEnter = (project) => {
-    if (!shooterBubble.isShot) {
-      // Ici, on peut éventuellement ajouter une logique pour la preview
-    }
-  };
-
-  const handleMouseLeave = () => {
-    if (!shooterBubble.isShot) {
-      // Ici, on peut éventuellement ajouter une logique pour la preview
-    }
-  };
-
   // En cliquant sur la zone de jeu, on calcule l'angle de tir
   const handleClick = (e) => {
     if (shooterBubble.isShot) return;
@@ -190,7 +177,7 @@ function Contact() {
 
     animationRef.current = requestAnimationFrame(update);
     return () => cancelAnimationFrame(animationRef.current);
-  }, [shooterBubble.isShot, topBubbles, squaredBubbleSize]);
+  }, [shooterBubble.isShot, topBubbles, squaredBubbleSize, resetShooter]);
 
   // Calcul de la ligne de visée (affichée tant que la bulle n'est pas tirée)
   let aimLine = null;
