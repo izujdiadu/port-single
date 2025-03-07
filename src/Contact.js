@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 import './Contact.css';
@@ -10,12 +10,12 @@ function Contact() {
   const bubbleSize = 60;
   const squaredBubbleSize = bubbleSize * bubbleSize; // pour l'optimisation de collision
 
-  // Définition des types de bulles (couleur, icône)
-  const bubbleTypes = [
+  // Définition des types de bulles (couleur, icône) mémorisée pour rester stable
+  const bubbleTypes = useMemo(() => [
     { className: 'linkedin', icon: <FaLinkedin title="LinkedIn" />, bgColor: '#0077b5' },
     { className: 'github', icon: <FaGithub title="GitHub" />, bgColor: '#000000' },
     { className: 'gmail', icon: <FaEnvelope title="Gmail" />, bgColor: '#D44638' },
-  ];
+  ], []);
 
   // Génération des bulles du plateau (zone du haut)
   const generateTopBubbles = () => {
