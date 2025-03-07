@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback  } from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 import './Contact.css';
@@ -103,20 +103,21 @@ function Contact() {
   };
 
   // Réinitialise la bulle tireuse
-  const resetShooter = () => {
+  const resetShooter = useCallback(() => {
     setShooterBubble(generateShooterBubble());
-  };
-
+  }, []);
+  
   // Réinitialise l'ensemble du jeu (plateau et tireuse) avec une animation
   const resetGame = () => {
     setResetAnim(true);
     setTimeout(() => {
       setTopBubbles(generateTopBubbles());
-      resetShooter();  // Utilisation de la fonction resetShooter mémorisée
+      resetShooter();  // Appel de la fonction mémorisée
       setAim(null);
       setResetAnim(false);
     }, 700);
   };
+  
 
   // Boucle d'animation pour déplacer la bulle tireuse
   useEffect(() => {
