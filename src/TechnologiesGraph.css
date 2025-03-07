@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .tech-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+  
+  .tech-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .tech-circle {
+    position: relative;
+    width: 120px; /* Réduit la taille du cercle */
+    height: 120px; /* Réduit la taille du cercle */
+    border-radius: 50%;
+    border: 8px solid #ddd; /* Réduit l'épaisseur du bord */
+    margin-bottom: 10px;
+  }
+  
+  .tech-percent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.2rem;
+    font-weight: bold;
+    z-index:  2;
+    color:white;
+  }
+  
+  .tech-name {
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  

@@ -1,0 +1,207 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.experience-container {
+  width: 100%;
+  height: 100vh;
+  background-color: #A78BFA; /* Fond violet */
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Le container du disque est positionné par Framer Motion */
+.disk-container {
+  position: absolute;
+}
+
+/* Conteneur tournant : fait tourner le disque et le texte circulaire */
+.rotating-elements {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  animation: rotateElements 20s linear infinite;
+}
+
+.rotating-elements.paused {
+  animation-play-state: paused;
+}
+
+/* Le disque central */
+.disk {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #ff6347;
+}
+
+/* SVG pour le texte circulaire */
+.circular-text {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.year-text {
+  fill: white;
+  font-size: 15px;
+  font-weight: bold;
+  text-anchor: middle;
+  dominant-baseline: middle;
+  letter-spacing: 25px;
+}
+
+.year-item {
+  transition: fill 0.3s, font-size 0.3s;
+  cursor: pointer;
+  padding: 0 10px;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+.year-item:hover {
+  fill: #FFD700;
+  font-size: 28px;
+}
+
+/* Conteneur pour l'image en hover dans le disque */
+.project-disk-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  height: 70%;
+  border-radius: 50%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.project-disk-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Overlay noir sur l'image (non interactif) */
+.project-disk-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+}
+
+/* Texte central (affiché uniquement en mode initial) */
+.center-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 32px;
+  font-weight: bold;
+  color: white;
+  z-index: 2;
+}
+
+.center-text h1 {
+  font-size: 36px;
+  font-weight: bold;
+  color: white;
+  z-index: 2;
+  transition: font-size 0.3s ease, opacity 0.3s ease;
+}
+
+/* La croix pour revenir (affichée dans le disque en mode projet) */
+.cross-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 48px;
+  color: white;
+  cursor: pointer;
+  z-index: 3;
+  opacity: 0.9;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.cross-overlay:hover {
+  transform: translate(-50%, -50%) scale(1.2);
+  color: #FFD700;
+}
+
+/* Animation de rotation */
+@keyframes rotateElements {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =================== */
+/* Styles pour la vue projet (centrée dans l'écran) */
+.project-view {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 800px;
+  text-align: center;
+  background-color: #000;
+  padding: 20px;
+  border-radius: 10px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.project-full-image {
+  width: 80%;
+  max-width: 600px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  /* L'image part du disque : vous pouvez ajuster l'animation via Framer Motion */
+}
+
+.project-text {
+  color: white;
+}
+
+.project-text h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.project-text p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.project-text button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #ff6347;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}

@@ -1,0 +1,215 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.about-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: #A78BFA; /* Dégradé moderne */
+  padding: 40px 20px;
+  position: relative;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Conteneur de l'enveloppe avec perspective pour effet 3D */
+.envelope-container {
+  position: relative;
+  width: 80%;
+  max-width: 800px;
+  height: 85vh; /* Augmenter la hauteur pour plus d'espace */
+  margin-top: 20px;
+  perspective: 1200px;
+  transform: rotateY(0deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Flap de l'enveloppe avec un effet 3D et un dégradé */
+.envelope-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background-color: white;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  transform-origin: bottom;
+  border: 2px solid #A78BFA;
+  border-bottom: none;
+  z-index: 2;
+  transition: transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Titre "ABOUT ME" au centre du flap de l'enveloppe */
+.about-title-on-envelope {
+  font-size: 38px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #5f3dc4;
+  z-index: 3;
+  font-weight: bold;
+}
+
+/* Bouton d'ouverture modernisé avec un effet de zoom */
+.open-btn {
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70px;
+  height: 70px;
+  background-color: #5f3dc4;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.open-btn:hover {
+  transform: translate(-50%, -50%) scale(1.15);
+  background-color: white;
+}
+
+.open-btn:hover::after {
+  color: #5f3dc4;  /* Flèche violette au hover */
+}
+
+.open-btn::after {
+  content: '➔';
+  font-size: 32px;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Corps de l'enveloppe avec une animation d'apparition */
+.envelope-body {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 55%; /* Augmenter la taille du bas de l'enveloppe */
+  background-color: white;
+  border: 2px solid #A78BFA;
+  border-top: none;
+  border-radius: 0 0 20px 20px;
+  z-index: 1;
+  overflow: hidden;
+  background-color: white;
+  background-size: 100px 100px;
+  transform: translateY(100%);
+  animation: slideUp 0.6s ease-out forwards;
+}
+
+/* Animation du corps de l'enveloppe */
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* Contenu affiché dans l'enveloppe */
+.envelope-content {
+  padding: 30px;
+  text-align: center;
+  color: #5f3dc4;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  border-radius: 0 0 20px 20px;
+  animation: fadeIn 0.8s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Bouton de fermeture avec effet de hover */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: #5f3dc4;
+  transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+  color: #A78BFA;
+}
+
+/* Titres et textes dans le contenu */
+.envelope-content h2 {
+  margin-bottom: 20px;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.envelope-content p {
+  font-size: 20px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* Navigation par flèches */
+.navigation {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: row; /* Aligner les flèches verticalement */
+  z-index: 4;
+}
+
+.nav-btn {
+  background-color: transparent;
+  border: none;
+  font-size: 36px; /* Augmenter la taille de la flèche */
+  color: #5f3dc4;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
+  z-index: 5; /* Assurer que la flèche soit au-dessus de tout autre élément */
+}
+
+.nav-btn:hover {
+  color: #A78BFA; /* Couleur violette au survol */
+  transform: scale(1.1); /* Effet de zoom au survol */
+}
+
+.nav-btn:focus {
+  outline: none; /* Supprimer le contour lors du focus */
+}

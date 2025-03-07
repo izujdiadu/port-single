@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.home-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 22.5%;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+  height: 100vh;
+  z-index: 1000;
+}
+
+/* Logo container (centré par défaut) */
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  transition: all 0.5s ease;
+}
+
+/* Logo container en haut */
+.logo-container.logo-top {
+  top: 9%;
+  left: 4.5%;
+  transform: translate(0, 0);
+  position: fixed;
+  transition: all 0.7s ease;
+}
+
+/* Taille du logo quand il est en haut */
+.logo-container.logo-top .logo {
+  width: 100px;
+  height: auto;
+}
+
+.logo-container.logo-top h1 {
+  font-size: 18px;
+}
+
+/* Taille du logo par défaut */
+.logo-container .logo {
+  width: 200px;
+  height: auto;
+  animation: floating 3s ease-in-out infinite;
+  z-index: 10;
+}
+
+.logo-container h1 {
+  font-size: 28px;
+  color: white;
+  z-index: 10;
+}
+
+/* Container des boutons */
+.button-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 40px;
+  height: 100vh;
+  justify-content: center;
+  gap: 20px;
+  position: absolute;
+  top: 10px;
+  left: 0;
+}
+
+
+.button-container a {
+  display: inline-block;
+  text-decoration: none;
+}
+
+/* Style des boutons par défaut */
+.button-container button {
+  background-color: #A78BFA;
+  color: white;
+  font-size: 18px;
+  padding: 14px 30px;
+  border: 2px solid #A78BFA;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+  display: inline-block;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Hover sur les boutons */
+.button-container button:hover {
+  background-color: white;
+  color: #A78BFA;
+  border-color: #A78BFA;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Bouton actif : style différent pour la page en cours */
+.button-container button.active {
+  background-color: white;
+  color: #A78BFA;
+  border-color: #A78BFA;
+}
+
+/* Focus sur les boutons */
+.button-container button:focus {
+  outline: none;
+}
+
+/* Animation du logo flottant */
+@keyframes floating {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-10px) rotate(3deg);
+  }
+  50% {
+    transform: translateY(0) rotate(-3deg);
+  }
+  75% {
+    transform: translateY(10px) rotate(3deg);
+  }
+}
+
+/* Animation du background */
+.home-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 18.5%;
+  height: 100%;
+  z-index: -1;
+}
+
+
+/* Styles de base déjà présents dans ton Home.css ... */
+
+.loading-screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #A78BFA;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.loading-logo {
+  width: 150px;
+  height: auto;
+}
+
+.loading-text {
+  margin-top: 20px;
+  font-size: 2rem;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.loading-buttons {
+  margin-top: 40px;
+  display: flex;
+  gap: 20px;
+}
+
+.loading-buttons button {
+  background-color: transparent;
+  color: white;
+  font-size: 1rem;
+  padding: 10px 20px;
+  border: 2px solid #A78BFA;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.loading-buttons button:hover {
+  background-color: white;
+  color: #A78BFA;
+}

@@ -1,0 +1,133 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Conteneur principal */
+.projects-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: #A78BFA;
+  overflow: hidden;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  perspective: 1500px;
+}
+
+/* Titre */
+.projects-name {
+  position: absolute;
+  top: 40%;
+  text-align: center;
+  z-index: 2;
+}
+
+.projects-name h1 {
+  font-size: 48px;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  text-shadow: 0 0 10px rgba(255,255,255,0.5),
+               0 0 20px rgba(255,255,255,0.3);
+  border: 2px solid white;
+  padding: 20px;
+}
+
+/* Boutons de sélection */
+/* Boutons de sélection */
+.project-buttons {
+  position: absolute;
+  bottom: 20px;
+  display: flex;
+  gap: 10px;
+  z-index: 3;
+}
+
+.project-buttons button {
+  padding: 10px 20px;
+  border: 2px solid white;
+  background-color: #A78BFA;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.project-buttons button:hover {
+  background-color: white;
+  color: #A78BFA;
+}
+
+/* Ajout des classes pour les boutons sélectionnés */
+.project-buttons button.selected {
+  background-color: white;
+  color: #A78BFA;
+}
+
+/* Conteneur global du puzzle (fixe : 1000px x 500px) */
+.projects-puzzle {
+  position: relative;
+  width: 1000px;
+  height: 500px;
+  margin-top: 15%;
+  overflow: visible;
+}
+
+/* Grille en mode split (2x2) */
+.puzzle-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 20px;
+  width: 100%;
+  height: 100%;
+}
+
+/* Conteneur pour le mode merged (le puzzle sélectionné) */
+/* En mode merged, le puzzle occupe 100% du container, donc 1000px x 500px */
+.merged-puzzle {
+  width: 100%;
+  height: 100%;
+}
+
+/* Chaque puzzle (pour un projet) */
+.puzzle {
+  position: relative;
+  overflow: visible;
+}
+
+/* Chaque pièce, découpée en 4 en mode split */
+.piece {
+  position: absolute;
+  width: calc(50% - 10px);
+  height: calc(50% - 10px);
+  background-size: calc(200% - 20px) calc(200% - 20px);
+  background-repeat: no-repeat;
+}
+
+/* Positions en mode split (avec gaps) */
+.piece1 { top: 0; left: 0; background-position: 0% 0%; }
+.piece2 { top: 0; left: calc(50% + 10px); background-position: 100% 0%; }
+.piece3 { top: calc(50% + 10px); left: 0; background-position: 0% 100%; }
+.piece4 { top: calc(50% + 10px); left: calc(50% + 10px); background-position: 100% 100%; }
+
+/* En mode merged, on retire les gaps : chaque pièce occupe exactement 50% du container */
+.puzzle.merged .piece {
+  width: 50%;
+  height: 50%;
+  background-size: 200% 200%;
+}
+.puzzle.merged .piece1 { top: 0; left: 0; }
+.puzzle.merged .piece2 { top: 0; left: 50%; }
+.puzzle.merged .piece3 { top: 50%; left: 0; }
+.puzzle.merged .piece4 { top: 50%; left: 50%; }
+
+/* Attribution des images pour chaque projet */
+.project1 .piece { background-image: url(./Images/project1.jpg); }
+.project2 .piece { background-image: url(./Images/project2.jpg); }
+.project3 .piece { background-image: url(./Images/project3.jpg); }
+.project4 .piece { background-image: url(./Images/project4.jpg); }

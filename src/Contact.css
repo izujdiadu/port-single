@@ -1,0 +1,158 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+  
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #A78BFA;
+    padding: 40px 20px;
+    position: relative;
+    overflow: hidden;
+}
+  
+/* Animation Reset modifiée pour être plus visible */
+@keyframes resetFade {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.4;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+  
+.reset-animation {
+    animation: resetFade 0.7s ease-in-out;
+}
+  
+.contact-tab {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+}
+  
+.contact-part {
+    z-index: 50;
+}
+
+.contact-name h1 {
+    font-size: 42px;
+    color: white;
+    text-align: center;
+}
+  
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+    font-size: 80px;
+    color: white;
+    transition: color 0.3s ease, transform 0.2s ease;
+
+}
+
+.contact-links a {
+    color:white;
+}
+
+  
+.contact-links a:hover {
+    color: #6B46C1;
+    transform: scale(1.1);
+}
+  
+/* Conteneur des bulles bien collé en haut */
+.contact-bubblesTab {
+    width: 100%;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+  
+/* Suppression de l'espace entre les bulles */
+.contact-bubbles {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    z-index: 1;
+    padding: 0;
+    gap: 0;
+}
+  
+/* Bulles bien collées */
+.contact-bubble {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    margin: 0;
+}
+  
+/* Rétablissement des couleurs des icônes */
+.contact-bubble .bubble-icon {
+    font-size: 30px;
+    color: white;
+}
+  
+/* Animation légère des bulles */
+@keyframes bubble-move {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-5px);
+    }
+}
+  
+/* Bouton Reset */
+.reset-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 30;
+}
+
+.contact-name h1 {
+
+    font-size: 78px;
+}
+
+

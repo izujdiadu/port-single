@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    cursor: crosshair; /* Affiche une croix au lieu du curseur par défaut */
+  }
+  
+
+  .project-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+   background-color: #A78BFA;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    
+  }
+  
+  button {
+    background-color: transparent; /* Fond transparent */
+    color: white; /* Texte blanc */
+    font-size: 18px; /* Taille de police plus grande */
+    padding: 14px 30px; /* Plus de padding pour une meilleure lisibilité */
+    border: 2px solid #A78BFA; /* Bordure violette */
+    border-radius: 30px; /* Bordures arrondies */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase; /* Met le texte en majuscule */
+    font-weight: bold; /* Texte plus épais */
+    letter-spacing: 1px; /* Espacement entre les lettres */
+}
+
+button:hover {
+    background-color: #ffffff; /* Fond blanc au survol */
+    color: #A78BFA; /* Texte violet clair */
+    border-color: #A78BFA; /* Garder la bordure violette */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2); /* Ombre plus marquée */
+}
+
+button:focus {
+    outline: none; /* Supprimer le contour de focus */
+}
